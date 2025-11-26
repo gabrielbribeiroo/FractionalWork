@@ -33,6 +33,56 @@ document.addEventListener('DOMContentLoaded', () => {
     // Waitlist Form Handling
     const form = document.getElementById('waitlist-form');
     const message = document.getElementById('form-message');
+    const userTypeInputs = document.querySelectorAll('input[name="user_type"]');
+    const expertFields = document.getElementById('expert-fields');
+    const companyFields = document.getElementById('company-fields');
+
+    // Inputs to toggle required state
+    const expertInputs = expertFields ? expertFields.querySelectorAll('input, select') : [];
+    const companyInputs = companyFields ? companyFields.querySelectorAll('input, select') : [];
+
+    function updateUserTypeState(type) {
+        if (type === 'expert') {
+            expertFields.classList.remove('hidden');
+            companyFields.classList.add('hidden');
+
+            // Enable Expert fields
+            expertInputs.forEach(input => {
+                // Portfolio is optional
+                if (input.id !== 'portfolio') {
+                    input.required = true;
+                }
+            });
+
+            // Disable Company fields
+            companyInputs.forEach(input => input.required = false);
+        } else {
+            expertFields.classList.add('hidden');
+            companyFields.classList.remove('hidden');
+
+            // Disable Expert fields
+            expertInputs.forEach(input => input.required = false);
+
+            // Enable Company fields
+            companyInputs.forEach(input => input.required = true);
+        }
+    }
+
+    // Initialize state
+    if (userTypeInputs.length > 0) {
+        // Find checked input or default to first
+        const checkedInput = document.querySelector('input[name="user_type"]:checked');
+        if (checkedInput) {
+            updateUserTypeState(checkedInput.value);
+        }
+
+        // Add listeners
+        userTypeInputs.forEach(input => {
+            input.addEventListener('change', (e) => {
+                updateUserTypeState(e.target.value);
+            });
+        });
+    }
 
     if (form) {
         form.addEventListener('submit', (e) => {
@@ -51,6 +101,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
             setTimeout(() => {
                 form.reset();
+                // Reset to default state
+                updateUserTypeState('expert');
+
                 btn.innerText = originalText;
                 btn.disabled = false;
                 message.classList.remove('hidden');
