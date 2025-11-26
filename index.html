@@ -20,10 +20,22 @@
             <a href="#" class="logo">Fractional<span class="logo-highlight">Work</span></a>
             <nav class="nav">
                 <ul class="nav-list">
-                    <li><a href="#how-it-works">How it Works</a></li>
-                    <li><a href="#solutions">Solutions</a></li>
-                    <li><a href="#community">Community</a></li>
-                    <li><a href="#waitlist" class="btn btn-primary">Join Waitlist</a></li>
+                    <li><a href="#how-it-works" data-i18n="nav_how_it_works">How it Works</a></li>
+                    <li><a href="#solutions" data-i18n="nav_solutions">Solutions</a></li>
+                    <li><a href="#community" data-i18n="nav_community">Community</a></li>
+                    <li class="language-selector">
+                        <button class="lang-btn" aria-label="Select Language">
+                            <span class="globe-icon">🌐</span>
+                            <span class="current-lang">English</span>
+                            <span class="chevron-down">▼</span>
+                        </button>
+                        <ul class="lang-dropdown">
+                            <li><a href="#" data-lang="pt">Português (BR)</a></li>
+                            <li><a href="#" data-lang="es">Español</a></li>
+                            <li><a href="#" data-lang="en" class="active">English</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#waitlist" class="btn btn-primary" data-i18n="nav_join_waitlist">Join Waitlist</a></li>
                 </ul>
             </nav>
             <button class="mobile-menu-btn" aria-label="Toggle menu">
@@ -39,27 +51,21 @@
         <section class="hero">
             <div class="container hero-container">
                 <div class="hero-content">
-                    <h1 class="hero-title">Unlock the Power of <span class="logo-highlight">Fractional Leadership</span>
+                    <div class="hero-badge">
+                        <span class="badge-icon">🏆</span>
+                        <span class="badge-text" data-i18n="hero_badge">Largest Fractional Work Agency in Latin
+                            America</span>
+                    </div>
+                    <h1 class="hero-title"><span data-i18n="hero_title_prefix">Unlock the Power of</span> <span
+                            class="logo-highlight" data-i18n="hero_title_highlight">Fractional Leadership</span>
                     </h1>
-                    <p class="hero-subtitle">Access world-class C-level executives for a fraction of the cost. Scale
+                    <p class="hero-subtitle" data-i18n="hero_subtitle">Access world-class C-level executives for a
+                        fraction of the cost. Scale
                         faster, smarter, and with proven expertise.</p>
                     <div class="hero-cta">
-                        <a href="#waitlist" class="btn btn-primary btn-lg">Find an Expert</a>
-                        <a href="#waitlist" class="btn btn-secondary btn-lg">Become an Expert</a>
-                    </div>
-                    <div class="hero-stats">
-                        <div class="stat-item">
-                            <span class="stat-number">500+</span>
-                            <span class="stat-label">Vetted Experts</span>
-                        </div>
-                        <div class="stat-item">
-                            <span class="stat-number">100+</span>
-                            <span class="stat-label">Companies</span>
-                        </div>
-                        <div class="stat-item">
-                            <span class="stat-number">24h</span>
-                            <span class="stat-label">Matching Time</span>
-                        </div>
+                        <a href="#waitlist" class="btn btn-primary btn-lg" data-i18n="hero_cta_find">Find an Expert</a>
+                        <a href="#waitlist" class="btn btn-secondary btn-lg" data-i18n="hero_cta_become">Become an
+                            Expert</a>
                     </div>
                 </div>
                 <div class="hero-image">
@@ -78,6 +84,21 @@
                             <div class="line line-long"></div>
                             <div class="line line-short"></div>
                         </div>
+                        <!-- Stats moved here -->
+                        <div class="hero-stats">
+                            <div class="stat-item">
+                                <span class="stat-number">500+</span>
+                                <span class="stat-label" data-i18n="stat_experts">Vetted Experts</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number">100+</span>
+                                <span class="stat-label" data-i18n="stat_companies">Companies</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number">24h</span>
+                                <span class="stat-label" data-i18n="stat_matching">Matching Time</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -87,8 +108,9 @@
         <section id="how-it-works" class="section bg-light">
             <div class="container">
                 <div class="section-header">
-                    <h2 class="section-title">Reinventing the Executive CV</h2>
-                    <p class="section-subtitle">We're building the infrastructure for the future of work. Say goodbye to
+                    <h2 class="section-title" data-i18n="features_title">Reinventing the Executive CV</h2>
+                    <p class="section-subtitle" data-i18n="features_subtitle">We're building the infrastructure for the
+                        future of work. Say goodbye to
                         static PDFs and hello to dynamic, productized profiles.</p>
                 </div>
                 <div class="features-grid">
@@ -104,8 +126,9 @@
                                 <polyline points="10 9 9 9 8 9"></polyline>
                             </svg>
                         </div>
-                        <h3>The New CV</h3>
-                        <p>A standardized, data-driven profile that highlights specific outcomes, case studies, and
+                        <h3 data-i18n="feature_1_title">The New CV</h3>
+                        <p data-i18n="feature_1_desc">A standardized, data-driven profile that highlights specific
+                            outcomes, case studies, and
                             fractional offerings rather than just job titles.</p>
                     </div>
                     <div class="feature-card">
@@ -117,8 +140,9 @@
                                 <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
                             </svg>
                         </div>
-                        <h3>Proactive Matching</h3>
-                        <p>Our algorithm matches companies with the exact expertise they need at the right moment,
+                        <h3 data-i18n="feature_2_title">Proactive Matching</h3>
+                        <p data-i18n="feature_2_desc">Our algorithm matches companies with the exact expertise they need
+                            at the right moment,
                             reducing hiring time from months to days.</p>
                     </div>
                     <div class="feature-card">
@@ -132,8 +156,9 @@
                                 <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
                             </svg>
                         </div>
-                        <h3>Community First</h3>
-                        <p>Join a vetted network of peers. Share knowledge, collaborate on projects, and access
+                        <h3 data-i18n="feature_3_title">Community First</h3>
+                        <p data-i18n="feature_3_desc">Join a vetted network of peers. Share knowledge, collaborate on
+                            projects, and access
                             exclusive resources for fractional leaders.</p>
                     </div>
                 </div>
@@ -145,21 +170,27 @@
             <div class="container">
                 <div class="split-layout">
                     <div class="split-content">
-                        <h2 class="section-title">For Companies</h2>
-                        <p class="section-subtitle">Scale your leadership team without the overhead.</p>
+                        <h2 class="section-title" data-i18n="companies_title">For Companies</h2>
+                        <p class="section-subtitle" data-i18n="companies_subtitle">Scale your leadership team without
+                            the overhead.</p>
                         <ul class="benefit-list">
-                            <li><span class="check-icon">✓</span> Access elite talent instantly</li>
-                            <li><span class="check-icon">✓</span> Pay for outcomes, not hours</li>
-                            <li><span class="check-icon">✓</span> Flexible engagement models</li>
-                            <li><span class="check-icon">✓</span> Zero recruitment fees</li>
+                            <li><span class="check-icon">✓</span> <span data-i18n="companies_benefit_1">Access elite
+                                    talent instantly</span></li>
+                            <li><span class="check-icon">✓</span> <span data-i18n="companies_benefit_2">Pay for
+                                    outcomes, not hours</span></li>
+                            <li><span class="check-icon">✓</span> <span data-i18n="companies_benefit_3">Flexible
+                                    engagement models</span></li>
+                            <li><span class="check-icon">✓</span> <span data-i18n="companies_benefit_4">Zero recruitment
+                                    fees</span></li>
                         </ul>
-                        <a href="#waitlist" class="btn btn-primary">Find Talent</a>
+                        <a href="#waitlist" class="btn btn-primary" data-i18n="companies_cta">Find Talent</a>
                     </div>
                     <div class="split-image">
                         <div class="image-box">
                             <div class="abstract-circle"></div>
-                            <h4>Problem-Solution Fit</h4>
-                            <p>We match you based on the specific challenge you're solving.</p>
+                            <h4 data-i18n="companies_box_title">Problem-Solution Fit</h4>
+                            <p data-i18n="companies_box_desc">We match you based on the specific challenge you're
+                                solving.</p>
                         </div>
                     </div>
                 </div>
@@ -170,21 +201,26 @@
             <div class="container">
                 <div class="split-layout reverse">
                     <div class="split-content">
-                        <h2 class="section-title">For Fractional Executives</h2>
-                        <p class="section-subtitle">Productize your expertise and build a portfolio career.</p>
+                        <h2 class="section-title" data-i18n="experts_title">For Fractional Executives</h2>
+                        <p class="section-subtitle" data-i18n="experts_subtitle">Productize your expertise and build a
+                            portfolio career.</p>
                         <ul class="benefit-list">
-                            <li><span class="check-icon">✓</span> Showcase your specific value prop</li>
-                            <li><span class="check-icon">✓</span> Get matched with ideal clients</li>
-                            <li><span class="check-icon">✓</span> Handle billing & contracts easily</li>
-                            <li><span class="check-icon">✓</span> Join a supportive community</li>
+                            <li><span class="check-icon">✓</span> <span data-i18n="experts_benefit_1">Showcase your
+                                    specific value prop</span></li>
+                            <li><span class="check-icon">✓</span> <span data-i18n="experts_benefit_2">Get matched with
+                                    ideal clients</span></li>
+                            <li><span class="check-icon">✓</span> <span data-i18n="experts_benefit_3">Handle billing &
+                                    contracts easily</span></li>
+                            <li><span class="check-icon">✓</span> <span data-i18n="experts_benefit_4">Join a supportive
+                                    community</span></li>
                         </ul>
-                        <a href="#waitlist" class="btn btn-primary">Join as Expert</a>
+                        <a href="#waitlist" class="btn btn-primary" data-i18n="experts_cta">Join as Expert</a>
                     </div>
                     <div class="split-image">
                         <div class="image-box">
                             <div class="abstract-square"></div>
-                            <h4>Repository of Success</h4>
-                            <p>Build a verifiable track record of your fractional wins.</p>
+                            <h4 data-i18n="experts_box_title">Repository of Success</h4>
+                            <p data-i18n="experts_box_desc">Build a verifiable track record of your fractional wins.</p>
                         </div>
                     </div>
                 </div>
@@ -195,30 +231,83 @@
         <section id="waitlist" class="cta-section">
             <div class="container">
                 <div class="section-header" style="text-align: center; margin-bottom: 3rem;">
-                    <h2 class="cta-title">Join the Future of Work</h2>
-                    <p class="cta-subtitle">We're launching soon. Secure your spot on the waitlist today.</p>
+                    <h2 class="cta-title" data-i18n="waitlist_title">Join the Future of Work</h2>
+                    <p class="cta-subtitle" data-i18n="waitlist_subtitle">We're launching soon. Secure your spot on the
+                        waitlist today.</p>
                 </div>
 
                 <div class="waitlist-form">
                     <form id="waitlist-form">
+                        <!-- User Type Toggle -->
                         <div class="form-group">
-                            <label for="name" class="form-label">Full Name</label>
+                            <label class="form-label">I am a...</label>
+                            <div class="radio-group">
+                                <label class="radio-option">
+                                    <input type="radio" name="user_type" value="expert" checked>
+                                    <span class="radio-custom"></span>
+                                    <span data-i18n="form_type_expert">Fractional Executive</span>
+                                </label>
+                                <label class="radio-option">
+                                    <input type="radio" name="user_type" value="company">
+                                    <span class="radio-custom"></span>
+                                    <span data-i18n="form_type_company">Company Hiring</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Common Fields -->
+                        <div class="form-group">
+                            <label for="name" class="form-label">Full Name *</label>
                             <input type="text" id="name" name="name" placeholder="Jane Doe" required class="form-input">
                         </div>
 
                         <div class="form-group">
-                            <label for="email" class="form-label">Email Address</label>
-                            <input type="email" id="email" name="email" placeholder="jane@example.com" required
+                            <label for="email" class="form-label">Email Address *</label>
+                            <input type="email" id="email" name="email" placeholder="you@example.com" required
                                 class="form-input">
                         </div>
 
                         <div class="form-group">
-                            <label for="linkedin" class="form-label">LinkedIn Profile</label>
+                            <label for="linkedin" class="form-label">LinkedIn Profile *</label>
                             <input type="url" id="linkedin" name="linkedin" placeholder="https://linkedin.com/in/..."
                                 required class="form-input">
                         </div>
 
-                        <button type="submit" class="btn btn-primary btn-block">Join Waitlist</button>
+                        <!-- Fractional Specific Fields -->
+                        <div id="expert-fields">
+                            <div class="form-group">
+                                <label for="portfolio" class="form-label">Portfolio / Website (Optional)</label>
+                                <input type="url" id="portfolio" name="portfolio" placeholder="https://..."
+                                    class="form-input">
+                            </div>
+                            <div class="form-group">
+                                <label for="role" class="form-label">Role (Cargo) *</label>
+                                <input type="text" id="role" name="role" placeholder="e.g. Fractional CTO, CMO..."
+                                    class="form-input">
+                            </div>
+                            <div class="form-group">
+                                <label for="expertise" class="form-label">Area of Expertise (Área de Atuação) *</label>
+                                <input type="text" id="expertise" name="expertise"
+                                    placeholder="e.g. Fintech, SaaS, Marketing..." class="form-input">
+                            </div>
+                        </div>
+
+                        <!-- Company Specific Fields -->
+                        <div id="company-fields" class="hidden">
+                            <div class="form-group">
+                                <label for="website" class="form-label">Company Website *</label>
+                                <input type="url" id="website" name="website" placeholder="https://acme.com"
+                                    class="form-input">
+                            </div>
+                            <div class="form-group">
+                                <label for="industry" class="form-label">Area of Activity (Área de Atuação) *</label>
+                                <input type="text" id="industry" name="industry"
+                                    placeholder="e.g. Healthtech, E-commerce..." class="form-input">
+                            </div>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary btn-block" data-i18n="form_submit">Join
+                            Waitlist</button>
                     </form>
                     <p id="form-message" class="form-message hidden">Thanks for joining! We'll be in touch soon.</p>
                 </div>
