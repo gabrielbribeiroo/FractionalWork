@@ -1,0 +1,557 @@
+import i18n from 'i18next';
+import { initReactI18next } from 'react-i18next';
+import LanguageDetector from 'i18next-browser-languagedetector';
+
+const resources = {
+  en: {
+    translation: {
+      // Navigation
+      nav_how_it_works: "How it Works",
+      nav_solutions: "Solutions",
+      nav_community: "Community",
+      nav_join_waitlist: "Join Waitlist",
+      nav_for_experts: "For Experts",
+      nav_for_companies: "For Companies",
+      
+      // Hero Section
+      hero_badge: "Largest Fractional Work Agency in Latin America",
+      hero_title_prefix: "Unlock the Power of",
+      hero_title_highlight: "Fractional Leadership",
+      hero_subtitle: "Access world-class C-level executives for a fraction of the cost. Scale faster, smarter, and with proven expertise.",
+      hero_cta_find: "Find an Expert",
+      hero_cta_become: "Become an Expert",
+      
+      // Stats
+      stat_experts: "Vetted Experts",
+      stat_companies: "Companies",
+      stat_matching: "Matching Time",
+      
+      // Features
+      features_title: "Reinventing the Executive CV",
+      features_subtitle: "We're building the infrastructure for the future of work. Say goodbye to static PDFs and hello to dynamic, productized profiles.",
+      feature_1_title: "The New CV",
+      feature_1_desc: "A standardized, data-driven profile that highlights specific outcomes, case studies, and fractional offerings rather than just job titles.",
+      feature_2_title: "Proactive Matching",
+      feature_2_desc: "Our algorithm matches companies with the exact expertise they need at the right moment, reducing hiring time from months to days.",
+      feature_3_title: "Continuous Growth",
+      feature_3_desc: "Experts gain access to a portfolio of opportunities, building diverse experience while companies benefit from battle-tested leadership.",
+      
+      // Solutions - For Companies
+      companies_title: "For Companies",
+      companies_subtitle: "Scale your leadership team without the overhead.",
+      companies_benefit_1: "Access elite talent instantly",
+      companies_benefit_2: "Pay for outcomes, not hours",
+      companies_benefit_3: "Flexible engagement models",
+      companies_benefit_4: "Zero recruitment fees",
+      companies_cta: "Find Talent",
+      companies_box_title: "Problem-Solution Fit",
+      companies_box_desc: "We match you based on the specific challenge you're solving.",
+      
+      // Solutions - For Experts
+      experts_title: "For Fractional Executives",
+      experts_subtitle: "Productize your expertise and build a portfolio career.",
+      experts_benefit_1: "Showcase your specific value prop",
+      experts_benefit_2: "Get matched with ideal clients",
+      experts_benefit_3: "Handle billing & contracts easily",
+      experts_benefit_4: "Join a supportive community",
+      experts_cta: "Join as Expert",
+      experts_box_title: "Repository of Success",
+      experts_box_desc: "Build a verifiable track record of your fractional wins.",
+      
+      // Waitlist Form
+      waitlist_title: "Join the Future of Work",
+      waitlist_subtitle: "We're launching soon. Secure your spot on the waitlist today.",
+      form_type_expert: "Fractional Executive",
+      form_type_company: "Company Hiring",
+      form_label_type: "I am a...",
+      form_label_name: "Full Name",
+      form_label_contact_name: "Contact Name",
+      form_label_email: "Email Address",
+      form_label_linkedin: "LinkedIn Profile",
+      form_label_portfolio: "Portfolio / Website (Optional)",
+      form_label_role: "Role",
+      form_label_expertise: "Area of Expertise",
+      form_label_website: "Company Website",
+      form_label_company_name: "Company Name",
+      form_label_industry: "Area of Activity",
+      form_submit: "Join Waitlist",
+      form_submitting: "Joining...",
+      form_success: "Thanks for joining! We'll be in touch soon.",
+      
+      // Expert Hero
+      expert_hero_badge: "Build Your Fractional Career",
+      expert_hero_title_prefix: "Turn Your Expertise Into",
+      expert_hero_title_highlight: "Portfolio Income",
+      expert_hero_subtitle: "Join Latin America's leading fractional work platform. Work with multiple companies, set your own terms, and build a sustainable portfolio career with C-level engagements.",
+      expert_hero_cta: "Join as Expert",
+      expert_stat_opportunities: "Active Opportunities",
+      expert_stat_income: "Average Income Increase",
+      expert_stat_network: "Expert Network",
+      
+      // Expert Benefits
+      expert_benefits_title: "Why Join as a Fractional Expert?",
+      expert_benefits_subtitle: "Transform your career with flexible, high-value C-level engagements across multiple industries.",
+      expert_benefit_1_title: "Multiple Income Streams",
+      expert_benefit_1_desc: "Work with 3-5 companies simultaneously. Diversify your income and reduce dependency on a single employer while maintaining work-life balance.",
+      expert_benefit_2_title: "Premium Positioning",
+      expert_benefit_2_desc: "Command rates 2-3x higher than traditional employment. Your expertise is valued as a strategic investment, not a cost center.",
+      expert_benefit_3_title: "Curated Opportunities",
+      expert_benefit_3_desc: "We match you with companies that truly need your specific expertise. No more cold outreach or endless proposals.",
+      expert_benefit_4_title: "Verified Track Record",
+      expert_benefit_4_desc: "Build a verifiable portfolio of wins. Each engagement adds to your reputation with concrete, measurable outcomes.",
+      expert_benefit_5_title: "Flexible Engagement",
+      expert_benefit_5_desc: "Choose your commitment level. From 10 hours/month advisory roles to 80 hours/month leadership positions.",
+      expert_benefit_6_title: "Support Community",
+      expert_benefit_6_desc: "Connect with fellow fractional executives. Share best practices, referrals, and grow together in a supportive ecosystem.",
+      
+      // Expert Waitlist
+      expert_waitlist_title: "Start Your Fractional Journey",
+      expert_waitlist_subtitle: "Join hundreds of C-level executives who've already made the shift to fractional work.",
+      expert_form_has_experience: "Have you worked as a Fractional before?",
+      expert_form_exp_yes: "Yes, I'm an experienced Fractional",
+      expert_form_exp_no: "No, but I'm interested",
+      expert_form_exp_learning: "I'm learning about the model",
+      expert_form_knows_model: "How familiar are you with the Fractional work model?",
+      expert_form_model_yes: "Very familiar - I know how it works",
+      expert_form_model_somewhat: "Somewhat familiar - I have a general idea",
+      expert_form_model_no: "Not familiar - I want to learn more",
+      expert_form_availability: "What's your current availability?",
+      expert_form_availability_placeholder: "e.g. 20 hours/week, available from March 2025, looking for 2-3 clients...",
+      
+      // Company Hero
+      company_hero_badge: "Access Elite Leadership On-Demand",
+      company_hero_title_prefix: "Scale Your Business With",
+      company_hero_title_highlight: "Expert Leadership",
+      company_hero_subtitle: "Get C-level executives on flexible terms. Pay only for what you need, when you need it. From strategic guidance to hands-on execution.",
+      company_hero_cta: "Find Your Expert",
+      company_stat_matching: "Average Matching Time",
+      company_stat_success: "Success Rate",
+      company_stat_cost_reduction: "Cost Reduction vs Full-time",
+      
+      // Company Benefits
+      company_benefits_title: "Why Hire Fractional Executives?",
+      company_benefits_subtitle: "Get world-class leadership without the full-time commitment or cost. Scale up or down as your needs evolve.",
+      company_benefit_1_title: "Instant Access to Talent",
+      company_benefit_1_desc: "Get matched with pre-vetted C-level executives in 48 hours. No lengthy recruitment processes or agency fees.",
+      company_benefit_2_title: "Pay for Outcomes",
+      company_benefit_2_desc: "Flexible engagement models from 10-80 hours/month. Invest in strategic leadership without full-time overhead.",
+      company_benefit_3_title: "Battle-Tested Experience",
+      company_benefit_3_desc: "Work with executives who've built, scaled, and sold companies. They've seen your challenges before and know how to solve them.",
+      company_benefit_4_title: "Risk-Free Scaling",
+      company_benefit_4_desc: "Start small, scale up as needed. No long-term commitments. Adjust engagement level monthly based on your company's needs.",
+      company_benefit_5_title: "Cross-Industry Insights",
+      company_benefit_5_desc: "Fractional executives work across multiple companies. They bring fresh perspectives and proven strategies from other industries.",
+      company_benefit_6_title: "Fast Time-to-Value",
+      company_benefit_6_desc: "Senior executives hit the ground running. No 6-month onboarding. Start seeing results in weeks, not quarters.",
+      
+      // Company Waitlist
+      company_waitlist_title: "Find Your Fractional Executive",
+      company_waitlist_subtitle: "Tell us about your needs and we'll match you with the perfect expert for your challenge.",
+      company_form_size: "Company Size",
+      company_form_size_startup: "Startup (1-10 employees)",
+      company_form_size_small: "Small (11-50 employees)",
+      company_form_size_medium: "Medium (51-200 employees)",
+      company_form_size_enterprise: "Enterprise (200+ employees)",
+      company_form_problem: "What problem are you trying to solve?",
+      company_form_problem_placeholder: "e.g. We need to build our go-to-market strategy, scale our engineering team, implement marketing automation...",
+      company_form_deliverable: "What deliverable do you expect?",
+      company_form_deliverable_placeholder: "e.g. A complete GTM strategy with execution roadmap, a hiring process for 10 engineers, a marketing tech stack implementation...",
+      
+      // Footer
+      footer_platform: "Platform",
+      footer_for_experts: "For Experts",
+      footer_for_companies: "For Companies",
+      footer_how_it_works: "How it Works",
+      footer_pricing: "Pricing",
+      footer_company: "Company",
+      footer_about: "About Us",
+      footer_careers: "Careers",
+      footer_blog: "Blog",
+      footer_contact: "Contact",
+      footer_legal: "Legal",
+      footer_privacy: "Privacy Policy",
+      footer_terms: "Terms of Service",
+      footer_tagline: "Connecting elite fractional talent with forward-thinking companies.",
+      footer_copyright: "© 2025 FractionalWork. All rights reserved.",
+      
+      // Language Selector
+      language: "Language",
+      english: "English (US)",
+      portuguese: "Português (BR)",
+      spanish: "Español",
+    }
+  },
+  pt: {
+    translation: {
+      // Navigation
+      nav_how_it_works: "Como Funciona",
+      nav_solutions: "Soluções",
+      nav_community: "Comunidade",
+      nav_join_waitlist: "Entrar na Lista",
+      nav_for_experts: "Para Especialistas",
+      nav_for_companies: "Para Empresas",
+      
+      // Hero Section
+      hero_badge: "Maior Agência de Trabalho Fracionado da América Latina",
+      hero_title_prefix: "Libere o Poder da",
+      hero_title_highlight: "Liderança Fracionada",
+      hero_subtitle: "Acesse executivos C-level de classe mundial por uma fração do custo. Escale mais rápido, de forma mais inteligente e com expertise comprovada.",
+      hero_cta_find: "Encontrar um Especialista",
+      hero_cta_become: "Tornar-se um Especialista",
+      
+      // Stats
+      stat_experts: "Especialistas Verificados",
+      stat_companies: "Empresas",
+      stat_matching: "Tempo de Correspondência",
+      
+      // Features
+      features_title: "Reinventando o CV Executivo",
+      features_subtitle: "Estamos construindo a infraestrutura para o futuro do trabalho. Diga adeus aos PDFs estáticos e olá aos perfis dinâmicos e produtizados.",
+      feature_1_title: "O Novo CV",
+      feature_1_desc: "Um perfil padronizado e orientado por dados que destaca resultados específicos, estudos de caso e ofertas fracionadas em vez de apenas cargos.",
+      feature_2_title: "Correspondência Proativa",
+      feature_2_desc: "Nosso algoritmo combina empresas com a expertise exata que precisam no momento certo, reduzindo o tempo de contratação de meses para dias.",
+      feature_3_title: "Crescimento Contínuo",
+      feature_3_desc: "Especialistas ganham acesso a um portfólio de oportunidades, construindo experiência diversa enquanto as empresas se beneficiam de liderança testada em batalha.",
+      
+      // Solutions - For Companies
+      companies_title: "Para Empresas",
+      companies_subtitle: "Escale sua equipe de liderança sem as despesas gerais.",
+      companies_benefit_1: "Acesse talentos de elite instantaneamente",
+      companies_benefit_2: "Pague por resultados, não por horas",
+      companies_benefit_3: "Modelos de engajamento flexíveis",
+      companies_benefit_4: "Zero taxas de recrutamento",
+      companies_cta: "Encontrar Talento",
+      companies_box_title: "Ajuste Problema-Solução",
+      companies_box_desc: "Nós combinamos você com base no desafio específico que você está resolvendo.",
+      
+      // Solutions - For Experts
+      experts_title: "Para Executivos Fracionados",
+      experts_subtitle: "Produtize sua expertise e construa uma carreira de portfólio.",
+      experts_benefit_1: "Mostre sua proposta de valor específica",
+      experts_benefit_2: "Seja correspondido com clientes ideais",
+      experts_benefit_3: "Gerencie faturamento e contratos facilmente",
+      experts_benefit_4: "Junte-se a uma comunidade de apoio",
+      experts_cta: "Junte-se como Especialista",
+      experts_box_title: "Repositório de Sucesso",
+      experts_box_desc: "Construa um histórico verificável de suas vitórias fracionadas.",
+      
+      // Waitlist Form
+      waitlist_title: "Junte-se ao Futuro do Trabalho",
+      waitlist_subtitle: "Estamos lançando em breve. Garanta seu lugar na lista hoje.",
+      form_type_expert: "Executivo Fracionado",
+      form_type_company: "Empresa Contratando",
+      form_label_type: "Eu sou...",
+      form_label_name: "Nome Completo",
+      form_label_contact_name: "Nome do Contato",
+      form_label_email: "Endereço de Email",
+      form_label_linkedin: "Perfil do LinkedIn",
+      form_label_portfolio: "Portfólio / Website (Opcional)",
+      form_label_role: "Cargo",
+      form_label_expertise: "Área de Especialização",
+      form_label_website: "Website da Empresa",
+      form_label_company_name: "Nome da Empresa",
+      form_label_industry: "Área de Atuação",
+      form_submit: "Entrar na Lista",
+      form_submitting: "Entrando...",
+      form_success: "Obrigado por se juntar! Entraremos em contato em breve.",
+      
+      // Expert Hero
+      expert_hero_badge: "Construa Sua Carreira Fracionada",
+      expert_hero_title_prefix: "Transforme Sua Expertise em",
+      expert_hero_title_highlight: "Renda de Portfólio",
+      expert_hero_subtitle: "Junte-se à principal plataforma de trabalho fracionado da América Latina. Trabalhe com múltiplas empresas, defina seus próprios termos e construa uma carreira de portfólio sustentável com engajamentos C-level.",
+      expert_hero_cta: "Junte-se como Especialista",
+      expert_stat_opportunities: "Oportunidades Ativas",
+      expert_stat_income: "Aumento Médio de Renda",
+      expert_stat_network: "Rede de Especialistas",
+      
+      // Expert Benefits
+      expert_benefits_title: "Por que se Juntar como Especialista Fracionado?",
+      expert_benefits_subtitle: "Transforme sua carreira com engajamentos C-level flexíveis e de alto valor em múltiplas indústrias.",
+      expert_benefit_1_title: "Múltiplas Fontes de Renda",
+      expert_benefit_1_desc: "Trabalhe com 3-5 empresas simultaneamente. Diversifique sua renda e reduza a dependência de um único empregador mantendo equilíbrio trabalho-vida.",
+      expert_benefit_2_title: "Posicionamento Premium",
+      expert_benefit_2_desc: "Comande taxas 2-3x maiores que o emprego tradicional. Sua expertise é valorizada como investimento estratégico, não como centro de custo.",
+      expert_benefit_3_title: "Oportunidades Curadas",
+      expert_benefit_3_desc: "Combinamos você com empresas que realmente precisam de sua expertise específica. Sem mais prospecção fria ou propostas intermináveis.",
+      expert_benefit_4_title: "Histórico Verificável",
+      expert_benefit_4_desc: "Construa um portfólio verificável de vitórias. Cada engajamento adiciona à sua reputação com resultados concretos e mensuráveis.",
+      expert_benefit_5_title: "Engajamento Flexível",
+      expert_benefit_5_desc: "Escolha seu nível de comprometimento. De funções consultivas de 10 horas/mês a posições de liderança de 80 horas/mês.",
+      expert_benefit_6_title: "Comunidade de Apoio",
+      expert_benefit_6_desc: "Conecte-se com outros executivos fracionados. Compartilhe melhores práticas, referências e cresça juntos em um ecossistema de apoio.",
+      
+      // Expert Waitlist
+      expert_waitlist_title: "Inicie Sua Jornada Fracionada",
+      expert_waitlist_subtitle: "Junte-se a centenas de executivos C-level que já fizeram a transição para o trabalho fracionado.",
+      expert_form_has_experience: "Você já trabalhou como Fracionado antes?",
+      expert_form_exp_yes: "Sim, sou um Fracionado experiente",
+      expert_form_exp_no: "Não, mas estou interessado",
+      expert_form_exp_learning: "Estou aprendendo sobre o modelo",
+      expert_form_knows_model: "Quão familiarizado você está com o modelo de trabalho Fracionado?",
+      expert_form_model_yes: "Muito familiarizado - Sei como funciona",
+      expert_form_model_somewhat: "Parcialmente familiarizado - Tenho uma ideia geral",
+      expert_form_model_no: "Não familiarizado - Quero aprender mais",
+      expert_form_availability: "Qual é sua disponibilidade atual?",
+      expert_form_availability_placeholder: "ex. 20 horas/semana, disponível a partir de março de 2025, procurando 2-3 clientes...",
+      
+      // Company Hero
+      company_hero_badge: "Acesse Liderança de Elite Sob Demanda",
+      company_hero_title_prefix: "Escale Seu Negócio Com",
+      company_hero_title_highlight: "Liderança Especializada",
+      company_hero_subtitle: "Obtenha executivos C-level em termos flexíveis. Pague apenas pelo que você precisa, quando você precisa. De orientação estratégica a execução prática.",
+      company_hero_cta: "Encontre Seu Especialista",
+      company_stat_matching: "Tempo Médio de Correspondência",
+      company_stat_success: "Taxa de Sucesso",
+      company_stat_cost_reduction: "Redução de Custo vs Tempo Integral",
+      
+      // Company Benefits
+      company_benefits_title: "Por que Contratar Executivos Fracionados?",
+      company_benefits_subtitle: "Obtenha liderança de classe mundial sem o compromisso ou custo de tempo integral. Escale para cima ou para baixo conforme suas necessidades evoluem.",
+      company_benefit_1_title: "Acesso Instantâneo a Talentos",
+      company_benefit_1_desc: "Seja correspondido com executivos C-level pré-verificados em 48 horas. Sem processos longos de recrutamento ou taxas de agência.",
+      company_benefit_2_title: "Pague por Resultados",
+      company_benefit_2_desc: "Modelos de engajamento flexíveis de 10-80 horas/mês. Invista em liderança estratégica sem despesas de tempo integral.",
+      company_benefit_3_title: "Experiência Testada em Batalha",
+      company_benefit_3_desc: "Trabalhe com executivos que construíram, escalaram e venderam empresas. Eles já viram seus desafios antes e sabem como resolvê-los.",
+      company_benefit_4_title: "Escalonamento Sem Risco",
+      company_benefit_4_desc: "Comece pequeno, escale conforme necessário. Sem compromissos de longo prazo. Ajuste o nível de engajamento mensalmente com base nas necessidades da sua empresa.",
+      company_benefit_5_title: "Insights Entre Indústrias",
+      company_benefit_5_desc: "Executivos fracionados trabalham em múltiplas empresas. Eles trazem perspectivas frescas e estratégias comprovadas de outras indústrias.",
+      company_benefit_6_title: "Tempo Rápido para Valor",
+      company_benefit_6_desc: "Executivos seniores começam a produzir imediatamente. Sem integração de 6 meses. Comece a ver resultados em semanas, não trimestres.",
+      
+      // Company Waitlist
+      company_waitlist_title: "Encontre Seu Executivo Fracionado",
+      company_waitlist_subtitle: "Conte-nos sobre suas necessidades e combinaremos você com o especialista perfeito para seu desafio.",
+      company_form_size: "Tamanho da Empresa",
+      company_form_size_startup: "Startup (1-10 funcionários)",
+      company_form_size_small: "Pequena (11-50 funcionários)",
+      company_form_size_medium: "Média (51-200 funcionários)",
+      company_form_size_enterprise: "Grande (200+ funcionários)",
+      company_form_problem: "Qual problema você está tentando resolver?",
+      company_form_problem_placeholder: "ex. Precisamos construir nossa estratégia go-to-market, escalar nossa equipe de engenharia, implementar automação de marketing...",
+      company_form_deliverable: "Qual entregável você espera?",
+      company_form_deliverable_placeholder: "ex. Uma estratégia GTM completa com roadmap de execução, um processo de contratação para 10 engenheiros, uma implementação de tech stack de marketing...",
+      
+      // Footer
+      footer_platform: "Plataforma",
+      footer_for_experts: "Para Especialistas",
+      footer_for_companies: "Para Empresas",
+      footer_how_it_works: "Como Funciona",
+      footer_pricing: "Preços",
+      footer_company: "Empresa",
+      footer_about: "Sobre Nós",
+      footer_careers: "Carreiras",
+      footer_blog: "Blog",
+      footer_contact: "Contato",
+      footer_legal: "Legal",
+      footer_privacy: "Política de Privacidade",
+      footer_terms: "Termos de Serviço",
+      footer_tagline: "Conectando talentos fracionados de elite com empresas visionárias.",
+      footer_copyright: "© 2025 FractionalWork. Todos os direitos reservados.",
+      
+      // Language Selector
+      language: "Idioma",
+      english: "English (US)",
+      portuguese: "Português (BR)",
+      spanish: "Español",
+    }
+  },
+  es: {
+    translation: {
+      // Navigation
+      nav_how_it_works: "Cómo Funciona",
+      nav_solutions: "Soluciones",
+      nav_community: "Comunidad",
+      nav_join_waitlist: "Unirse a la Lista",
+      nav_for_experts: "Para Expertos",
+      nav_for_companies: "Para Empresas",
+      
+      // Hero Section
+      hero_badge: "La Mayor Agencia de Trabajo Fraccionado en América Latina",
+      hero_title_prefix: "Desbloquea el Poder del",
+      hero_title_highlight: "Liderazgo Fraccionado",
+      hero_subtitle: "Accede a ejecutivos C-level de clase mundial por una fracción del costo. Escala más rápido, más inteligentemente y con experiencia probada.",
+      hero_cta_find: "Encontrar un Experto",
+      hero_cta_become: "Convertirse en Experto",
+      
+      // Stats
+      stat_experts: "Expertos Verificados",
+      stat_companies: "Empresas",
+      stat_matching: "Tiempo de Emparejamiento",
+      
+      // Features
+      features_title: "Reinventando el CV Ejecutivo",
+      features_subtitle: "Estamos construyendo la infraestructura para el futuro del trabajo. Di adiós a los PDFs estáticos y hola a los perfiles dinámicos y productizados.",
+      feature_1_title: "El Nuevo CV",
+      feature_1_desc: "Un perfil estandarizado y basado en datos que resalta resultados específicos, estudios de caso y ofertas fraccionadas en lugar de solo títulos de trabajo.",
+      feature_2_title: "Emparejamiento Proactivo",
+      feature_2_desc: "Nuestro algoritmo empareja empresas con la experiencia exacta que necesitan en el momento adecuado, reduciendo el tiempo de contratación de meses a días.",
+      feature_3_title: "Crecimiento Continuo",
+      feature_3_desc: "Los expertos obtienen acceso a un portafolio de oportunidades, construyendo experiencia diversa mientras las empresas se benefician de liderazgo probado en batalla.",
+      
+      // Solutions - For Companies
+      companies_title: "Para Empresas",
+      companies_subtitle: "Escala tu equipo de liderazgo sin los gastos generales.",
+      companies_benefit_1: "Accede a talento de élite al instante",
+      companies_benefit_2: "Paga por resultados, no por horas",
+      companies_benefit_3: "Modelos de compromiso flexibles",
+      companies_benefit_4: "Cero tarifas de reclutamiento",
+      companies_cta: "Encontrar Talento",
+      companies_box_title: "Ajuste Problema-Solución",
+      companies_box_desc: "Te emparejamos según el desafío específico que estás resolviendo.",
+      
+      // Solutions - For Experts
+      experts_title: "Para Ejecutivos Fraccionados",
+      experts_subtitle: "Productiza tu experiencia y construye una carrera de portafolio.",
+      experts_benefit_1: "Muestra tu propuesta de valor específica",
+      experts_benefit_2: "Emparéjate con clientes ideales",
+      experts_benefit_3: "Maneja facturación y contratos fácilmente",
+      experts_benefit_4: "Únete a una comunidad de apoyo",
+      experts_cta: "Únete como Experto",
+      experts_box_title: "Repositorio de Éxito",
+      experts_box_desc: "Construye un historial verificable de tus victorias fraccionadas.",
+      
+      // Waitlist Form
+      waitlist_title: "Únete al Futuro del Trabajo",
+      waitlist_subtitle: "Estamos lanzando pronto. Asegura tu lugar en la lista hoy.",
+      form_type_expert: "Ejecutivo Fraccionado",
+      form_type_company: "Empresa Contratando",
+      form_label_type: "Yo soy...",
+      form_label_name: "Nombre Completo",
+      form_label_contact_name: "Nombre de Contacto",
+      form_label_email: "Dirección de Correo",
+      form_label_linkedin: "Perfil de LinkedIn",
+      form_label_portfolio: "Portafolio / Sitio Web (Opcional)",
+      form_label_role: "Rol",
+      form_label_expertise: "Área de Experiencia",
+      form_label_website: "Sitio Web de la Empresa",
+      form_label_company_name: "Nombre de la Empresa",
+      form_label_industry: "Área de Actividad",
+      form_submit: "Unirse a la Lista",
+      form_submitting: "Uniéndose...",
+      form_success: "¡Gracias por unirte! Nos pondremos en contacto pronto.",
+      
+      // Expert Hero
+      expert_hero_badge: "Construye Tu Carrera Fraccionada",
+      expert_hero_title_prefix: "Convierte Tu Experiencia en",
+      expert_hero_title_highlight: "Ingresos de Portafolio",
+      expert_hero_subtitle: "Únete a la plataforma líder de trabajo fraccionado en América Latina. Trabaja con múltiples empresas, establece tus propios términos y construye una carrera de portafolio sostenible con compromisos C-level.",
+      expert_hero_cta: "Únete como Experto",
+      expert_stat_opportunities: "Oportunidades Activas",
+      expert_stat_income: "Aumento Promedio de Ingresos",
+      expert_stat_network: "Red de Expertos",
+      
+      // Expert Benefits
+      expert_benefits_title: "¿Por qué Unirse como Experto Fraccionado?",
+      expert_benefits_subtitle: "Transforma tu carrera con compromisos C-level flexibles y de alto valor en múltiples industrias.",
+      expert_benefit_1_title: "Múltiples Fuentes de Ingresos",
+      expert_benefit_1_desc: "Trabaja con 3-5 empresas simultáneamente. Diversifica tus ingresos y reduce la dependencia de un solo empleador mientras mantienes el equilibrio vida-trabajo.",
+      expert_benefit_2_title: "Posicionamiento Premium",
+      expert_benefit_2_desc: "Cobra tarifas 2-3x más altas que el empleo tradicional. Tu experiencia se valora como inversión estratégica, no como centro de costos.",
+      expert_benefit_3_title: "Oportunidades Curadas",
+      expert_benefit_3_desc: "Te emparejamos con empresas que realmente necesitan tu experiencia específica. No más prospección en frío o propuestas interminables.",
+      expert_benefit_4_title: "Historial Verificable",
+      expert_benefit_4_desc: "Construye un portafolio verificable de victorias. Cada compromiso añade a tu reputación con resultados concretos y medibles.",
+      expert_benefit_5_title: "Compromiso Flexible",
+      expert_benefit_5_desc: "Elige tu nivel de compromiso. Desde roles de asesoría de 10 horas/mes hasta posiciones de liderazgo de 80 horas/mes.",
+      expert_benefit_6_title: "Comunidad de Apoyo",
+      expert_benefit_6_desc: "Conéctate con otros ejecutivos fraccionados. Comparte mejores prácticas, referencias y crece juntos en un ecosistema de apoyo.",
+      
+      // Expert Waitlist
+      expert_waitlist_title: "Inicia Tu Viaje Fraccionado",
+      expert_waitlist_subtitle: "Únete a cientos de ejecutivos C-level que ya han hecho el cambio al trabajo fraccionado.",
+      expert_form_has_experience: "¿Has trabajado como Fraccionado antes?",
+      expert_form_exp_yes: "Sí, soy un Fraccionado experimentado",
+      expert_form_exp_no: "No, pero estoy interesado",
+      expert_form_exp_learning: "Estoy aprendiendo sobre el modelo",
+      expert_form_knows_model: "¿Qué tan familiarizado estás con el modelo de trabajo Fraccionado?",
+      expert_form_model_yes: "Muy familiarizado - Sé cómo funciona",
+      expert_form_model_somewhat: "Algo familiarizado - Tengo una idea general",
+      expert_form_model_no: "No familiarizado - Quiero aprender más",
+      expert_form_availability: "¿Cuál es tu disponibilidad actual?",
+      expert_form_availability_placeholder: "ej. 20 horas/semana, disponible desde marzo 2025, buscando 2-3 clientes...",
+      
+      // Company Hero
+      company_hero_badge: "Accede a Liderazgo de Élite Bajo Demanda",
+      company_hero_title_prefix: "Escala Tu Negocio Con",
+      company_hero_title_highlight: "Liderazgo Experto",
+      company_hero_subtitle: "Obtén ejecutivos C-level en términos flexibles. Paga solo por lo que necesitas, cuando lo necesitas. Desde orientación estratégica hasta ejecución práctica.",
+      company_hero_cta: "Encuentra Tu Experto",
+      company_stat_matching: "Tiempo Promedio de Emparejamiento",
+      company_stat_success: "Tasa de Éxito",
+      company_stat_cost_reduction: "Reducción de Costo vs Tiempo Completo",
+      
+      // Company Benefits
+      company_benefits_title: "¿Por qué Contratar Ejecutivos Fraccionados?",
+      company_benefits_subtitle: "Obtén liderazgo de clase mundial sin el compromiso o costo de tiempo completo. Escala hacia arriba o hacia abajo a medida que tus necesidades evolucionan.",
+      company_benefit_1_title: "Acceso Instantáneo a Talento",
+      company_benefit_1_desc: "Emparéjate con ejecutivos C-level pre-verificados en 48 horas. Sin procesos largos de reclutamiento o tarifas de agencia.",
+      company_benefit_2_title: "Paga por Resultados",
+      company_benefit_2_desc: "Modelos de compromiso flexibles de 10-80 horas/mes. Invierte en liderazgo estratégico sin gastos de tiempo completo.",
+      company_benefit_3_title: "Experiencia Probada en Batalla",
+      company_benefit_3_desc: "Trabaja con ejecutivos que han construido, escalado y vendido empresas. Ya han visto tus desafíos antes y saben cómo resolverlos.",
+      company_benefit_4_title: "Escalamiento Sin Riesgo",
+      company_benefit_4_desc: "Comienza pequeño, escala según sea necesario. Sin compromisos a largo plazo. Ajusta el nivel de compromiso mensualmente según las necesidades de tu empresa.",
+      company_benefit_5_title: "Insights Entre Industrias",
+      company_benefit_5_desc: "Los ejecutivos fraccionados trabajan en múltiples empresas. Traen perspectivas frescas y estrategias probadas de otras industrias.",
+      company_benefit_6_title: "Tiempo Rápido para Valor",
+      company_benefit_6_desc: "Los ejecutivos senior comienzan a producir de inmediato. Sin integración de 6 meses. Comienza a ver resultados en semanas, no trimestres.",
+      
+      // Company Waitlist
+      company_waitlist_title: "Encuentra Tu Ejecutivo Fraccionado",
+      company_waitlist_subtitle: "Cuéntanos sobre tus necesidades y te emparejaremos con el experto perfecto para tu desafío.",
+      company_form_size: "Tamaño de la Empresa",
+      company_form_size_startup: "Startup (1-10 empleados)",
+      company_form_size_small: "Pequeña (11-50 empleados)",
+      company_form_size_medium: "Mediana (51-200 empleados)",
+      company_form_size_enterprise: "Grande (200+ empleados)",
+      company_form_problem: "¿Qué problema estás tratando de resolver?",
+      company_form_problem_placeholder: "ej. Necesitamos construir nuestra estrategia go-to-market, escalar nuestro equipo de ingeniería, implementar automatización de marketing...",
+      company_form_deliverable: "¿Qué entregable esperas?",
+      company_form_deliverable_placeholder: "ej. Una estrategia GTM completa con roadmap de ejecución, un proceso de contratación para 10 ingenieros, una implementación de tech stack de marketing...",
+      
+      // Footer
+      footer_platform: "Plataforma",
+      footer_for_experts: "Para Expertos",
+      footer_for_companies: "Para Empresas",
+      footer_how_it_works: "Cómo Funciona",
+      footer_pricing: "Precios",
+      footer_company: "Empresa",
+      footer_about: "Sobre Nosotros",
+      footer_careers: "Carreras",
+      footer_blog: "Blog",
+      footer_contact: "Contacto",
+      footer_legal: "Legal",
+      footer_privacy: "Política de Privacidad",
+      footer_terms: "Términos de Servicio",
+      footer_tagline: "Conectando talento fraccionado de élite con empresas visionarias.",
+      footer_copyright: "© 2025 FractionalWork. Todos los derechos reservados.",
+      
+      // Language Selector
+      language: "Idioma",
+      english: "English (US)",
+      portuguese: "Português (BR)",
+      spanish: "Español",
+    }
+  }
+};
+
+i18n
+  .use(LanguageDetector)
+  .use(initReactI18next)
+  .init({
+    resources,
+    fallbackLng: 'en',
+    detection: {
+      order: ['localStorage', 'navigator', 'htmlTag'],
+      caches: ['localStorage'],
+    },
+    interpolation: {
+      escapeValue: false,
+    },
+  });
+
+export default i18n;
