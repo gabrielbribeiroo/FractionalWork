@@ -11,6 +11,7 @@ import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Textarea } from "@/components/ui/textarea";
 import { Card } from "@/components/ui/card";
 import { useToast } from "@/hooks/use-toast";
+import { supabase } from "@/lib/supabase";
 
 const companySchema = z.object({
   name: z.string().trim().min(2, "Name must be at least 2 characters").max(100, "Name too long"),
@@ -45,16 +46,44 @@ export const CompanyWaitlistSection = () => {
 
   const onSubmit = async (data: CompanyFormData) => {
     setIsSubmitting(true);
-    
-    await new Promise(resolve => setTimeout(resolve, 1500));
-    
-    toast({
-      title: t('form_success'),
-      duration: 5000,
-    });
-    
-    reset();
-    setIsSubmitting(false);
+
+    try {
+      const { error } = await supabase
+        .from('waitlist')
+        .insert([
+          {
+            type: 'company',
+            name: data.name,
+            email: data.email,
+            linkedin: data.linkedin,
+            company_name: data.companyName,
+            website: data.website,
+            industry: data.industry,
+            company_size: data.companySize,
+            problem_to_solve: data.problemToSolve,
+            expected_deliverable: data.expectedDeliverable,
+            created_at: new Date().toISOString(),
+          }
+        ]);
+
+      if (error) throw error;
+
+      toast({
+        title: t('form_success'),
+        duration: 5000,
+      });
+
+      reset();
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      toast({
+        title: "Error submitting form",
+        description: "Please try again later.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
