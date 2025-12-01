@@ -14,7 +14,7 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-background flex flex-col">
       <Header />
-      
+
       <main className="flex-grow pt-24 pb-12">
         {/* Hero Section */}
         <section className="relative py-20 overflow-hidden">
@@ -32,11 +32,10 @@ const Index = () => {
                 transition={{ duration: 0.6 }}
               >
                 <h1 className="text-5xl md:text-7xl font-black mb-6 tracking-tight font-display">
-                  The <span className="text-primary">New Way</span> to Work
+                  {t('landing_title_prefix')} <span className="text-primary">{t('landing_title_highlight')}</span> {t('landing_title_suffix')}
                 </h1>
                 <p className="text-xl md:text-2xl text-muted-foreground leading-relaxed max-w-2xl mx-auto">
-                  We connect world-class fractional executives with forward-thinking companies. 
-                  Scale faster, smarter, and with proven expertise.
+                  {t('landing_subtitle')}
                 </p>
               </motion.div>
             </div>
@@ -51,35 +50,35 @@ const Index = () => {
               >
                 <Card className="h-full p-8 md:p-12 hover:shadow-2xl hover:shadow-primary/10 transition-all duration-300 border-2 hover:border-primary/50 group relative overflow-hidden">
                   <div className="absolute top-0 right-0 w-64 h-64 bg-primary/5 rounded-full blur-3xl -mr-32 -mt-32 group-hover:bg-primary/10 transition-colors" />
-                  
+
                   <div className="relative z-10 flex flex-col h-full items-start">
                     <div className="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center mb-8 group-hover:scale-110 transition-transform duration-300">
                       <Building2 className="w-8 h-8 text-primary" />
                     </div>
-                    
-                    <h2 className="text-3xl font-bold mb-4">I am a Company</h2>
+
+                    <h2 className="text-3xl font-bold mb-4">{t('landing_card_company_title')}</h2>
                     <p className="text-lg text-muted-foreground mb-8 flex-grow">
-                      Access elite C-level talent on demand. Scale your leadership team without the overhead.
+                      {t('landing_card_company_desc')}
                     </p>
 
                     <ul className="space-y-3 mb-8 text-muted-foreground">
                       <li className="flex items-center gap-2">
                         <CheckCircle2 className="w-5 h-5 text-primary" />
-                        <span>Hire in 48 hours</span>
+                        <span>{t('landing_card_company_feat_1')}</span>
                       </li>
                       <li className="flex items-center gap-2">
                         <CheckCircle2 className="w-5 h-5 text-primary" />
-                        <span>No recruitment fees</span>
+                        <span>{t('landing_card_company_feat_2')}</span>
                       </li>
                       <li className="flex items-center gap-2">
                         <CheckCircle2 className="w-5 h-5 text-primary" />
-                        <span>Flexible contracts</span>
+                        <span>{t('landing_card_company_feat_3')}</span>
                       </li>
                     </ul>
 
                     <Link to="/for-companies" className="w-full">
                       <Button className="w-full text-lg h-14 bg-primary hover:bg-primary-dark group-hover:translate-x-1 transition-all">
-                        Find Talent
+                        {t('landing_card_company_cta')}
                         <ArrowRight className="ml-2 w-5 h-5" />
                       </Button>
                     </Link>
@@ -95,35 +94,35 @@ const Index = () => {
               >
                 <Card className="h-full p-8 md:p-12 hover:shadow-2xl hover:shadow-secondary/10 transition-all duration-300 border-2 hover:border-secondary/50 group relative overflow-hidden">
                   <div className="absolute top-0 right-0 w-64 h-64 bg-secondary/5 rounded-full blur-3xl -mr-32 -mt-32 group-hover:bg-secondary/10 transition-colors" />
-                  
+
                   <div className="relative z-10 flex flex-col h-full items-start">
                     <div className="w-16 h-16 rounded-2xl bg-secondary/10 flex items-center justify-center mb-8 group-hover:scale-110 transition-transform duration-300">
                       <User className="w-8 h-8 text-secondary" />
                     </div>
-                    
-                    <h2 className="text-3xl font-bold mb-4">I am an Expert</h2>
+
+                    <h2 className="text-3xl font-bold mb-4">{t('landing_card_expert_title')}</h2>
                     <p className="text-lg text-muted-foreground mb-8 flex-grow">
-                      Monetize your expertise. Build a portfolio career with high-value fractional roles.
+                      {t('landing_card_expert_desc')}
                     </p>
 
                     <ul className="space-y-3 mb-8 text-muted-foreground">
                       <li className="flex items-center gap-2">
                         <CheckCircle2 className="w-5 h-5 text-secondary" />
-                        <span>Multiple income streams</span>
+                        <span>{t('landing_card_expert_feat_1')}</span>
                       </li>
                       <li className="flex items-center gap-2">
                         <CheckCircle2 className="w-5 h-5 text-secondary" />
-                        <span>Work on your terms</span>
+                        <span>{t('landing_card_expert_feat_2')}</span>
                       </li>
                       <li className="flex items-center gap-2">
                         <CheckCircle2 className="w-5 h-5 text-secondary" />
-                        <span>Curated opportunities</span>
+                        <span>{t('landing_card_expert_feat_3')}</span>
                       </li>
                     </ul>
 
                     <Link to="/for-experts" className="w-full">
                       <Button className="w-full text-lg h-14 bg-secondary hover:bg-secondary-dark text-white group-hover:translate-x-1 transition-all">
-                        Join as Expert
+                        {t('landing_card_expert_cta')}
                         <ArrowRight className="ml-2 w-5 h-5" />
                       </Button>
                     </Link>
