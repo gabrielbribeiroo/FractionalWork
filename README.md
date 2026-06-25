@@ -64,4 +64,3 @@ The translation is handled client-side via a dictionary object in `script.js`.
 This project is available for personal and commercial use, under the [MIT License](LICENSE).
 
 ---
-*Built with precision for the future of work.*
